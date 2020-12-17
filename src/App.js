@@ -23,6 +23,8 @@ function App() {
   const [savedFormInfo, setSavedFormInfo] = useState([]);
   const [errors, setErrors] = useState(defaultErrors);
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [post, setPost] = useState([]);
+
   const change = (evt) => {
     const { name, value } = evt.target;
     validate(name, value);
@@ -34,9 +36,8 @@ function App() {
   };
   const submit = (evt) => {
     evt.preventDefault();
-
     axios.post("https://reqres.in/api/users", formValues).then((res) => {
-      SVGTextPositioningElement(res.data);
+      setPost(res.data);
       console.log(res.data);
     });
 
