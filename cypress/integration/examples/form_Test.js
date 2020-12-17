@@ -1,6 +1,9 @@
 describe("name text", function () {
   it("Checks if text contains name", function () {
-    cy.get('input[type="name"]').type("Jane").should("have.value", "Jane");
+    cy.visit("app.js")
+      .get('input[type="name"]')
+      .type("Jane")
+      .should("have.value", "Jane");
     // cy.visit("form.js");
     // cy.get(".name").should("have.value", "Enter Name");
     // cy.type("Jane");
@@ -20,14 +23,13 @@ describe("email text", function () {
 });
 describe("password text", function () {
   it("Checks if text contains password", function () {
-    cy.visit("form.js");
-    cy.get(".Password").should("have.value", "Enter A Password");
-    cy.type("aschjlj");
+    cy.get('input[type="password"]')
+      .type("aschjlj")
+      .should("have.value", "aschjlj");
   });
 });
 describe("Check a checkbox", function () {
   it("Checks if a user can check a box", function () {
-    cy.visit("form.js");
-    cy.get(".terms").click();
+    cy.get('input[type="checkbox"]').click();
   });
 });
