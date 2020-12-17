@@ -33,3 +33,8 @@ describe("Check a checkbox", function () {
     cy.get('input[type="checkbox"]').click();
   });
 });
+describe("button submit", function () {
+  it("Checks if submit button can be clicked", function () {
+    cy.get(".btn").contains("Submit").click();
+  });
+});
