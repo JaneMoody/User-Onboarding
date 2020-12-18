@@ -40,13 +40,12 @@ function App() {
       setPost(res.data);
       console.log(res.data);
     });
-
+    .catch(err => {console.log(err)})
     const newData = {
       name: formValues.name.trim(),
       email: formValues.email.trimEnd(),
       password: formValues.password.trimEnd(),
     };
-
     setSavedFormInfo([...savedFormInfo, newData]);
     setFormValues(defaultValues);
   };
